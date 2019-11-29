@@ -1,13 +1,15 @@
 package rakaneth.golden_lotus.ui.screens;
 
 import asciiPanel.AsciiPanel;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+
 
 import java.awt.event.KeyEvent;
+import java.util.logging.Level;
+import java.util.logging.LogManager;
+import java.util.logging.Logger;
 
 abstract public class BaseScreen {
-    private static final Logger logger = LogManager.getLogger("BaseScreen");
+    private final static Logger logger = LogManager.getLogManager().getLogger(Logger.GLOBAL_LOGGER_NAME);
     protected AsciiPanel terminal;
     protected String name;
 
@@ -19,12 +21,12 @@ abstract public class BaseScreen {
     public String getName() { return name; }
 
     public void enter() {
-        logger.debug("Entering {} screen", name);
+        logger.log(Level.INFO, "Entering " + name +  " screen");
     }
 
     public void exit() {
-        logger.debug("Exiting {} screen", name);
-    }
+        logger.log(Level.INFO, "Exiting " + name +   " screen");
+   }
 
     abstract public void render();
     abstract public void handle(KeyEvent key);

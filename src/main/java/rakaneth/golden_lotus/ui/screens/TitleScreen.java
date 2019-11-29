@@ -1,15 +1,16 @@
 package rakaneth.golden_lotus.ui.screens;
 
 import asciiPanel.AsciiPanel;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import rakaneth.golden_lotus.ui.Panel;
 
 import java.awt.event.KeyEvent;
+import java.util.logging.Level;
+import java.util.logging.LogManager;
+import java.util.logging.Logger;
 
 public class TitleScreen extends BaseScreen {
     private Panel title;
-    private static Logger logger = LogManager.getLogger("Title Screen");
+    private static final Logger logger = LogManager.getLogManager().getLogger(Logger.GLOBAL_LOGGER_NAME);
 
     public TitleScreen(AsciiPanel terminal) {
         super("title", terminal);
@@ -23,6 +24,6 @@ public class TitleScreen extends BaseScreen {
 
     @Override
     public void handle(KeyEvent key) {
-        logger.debug("Key {} pressed", key.getKeyChar());
+        logger.log(Level.INFO, "Key " +  key.getKeyChar() + " pressed");
     }
 }
