@@ -12,7 +12,7 @@ import static rakaneth.golden_lotus.GameUtils.clamp;
 import static rakaneth.golden_lotus.GameUtils.between;
 
 public class GameMap {
-    class MapConnection {
+    public class MapConnection {
         public final String destID;
         public final Coord destCoord;
         public final byte direction;
@@ -56,6 +56,7 @@ public class GameMap {
         this.height = baseMap[0].length;
         this.scratch = new GreasedRegion(width, height);
         this.rng = rng;
+        this.connections = new HashMap<>();
     }
 
     public char[][] getBaseMap() { return baseMap; }
@@ -132,6 +133,10 @@ public class GameMap {
         }
         setTile(fromCoord, toSet);
         if (twoWay) otherMap.connect(this, toCoord, fromCoord, opp, false);
+    }
+
+    public MapConnection getConnection(Coord c) {
+        return connections.getOrDefault(c, null);
     }
 
 }
