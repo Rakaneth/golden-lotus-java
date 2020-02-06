@@ -4,6 +4,7 @@ import asciiPanel.AsciiFont;
 import asciiPanel.AsciiPanel;
 import rakaneth.golden_lotus.ui.screens.ScreenManager;
 import rakaneth.golden_lotus.ui.screens.TitleScreen;
+import rakaneth.golden_lotus.GameConfig;
 
 import javax.swing.JFrame;
 import java.awt.event.KeyEvent;
@@ -17,7 +18,7 @@ public class App
 
     public App() {
         super();
-        terminal = new AsciiPanel(100, 40, AsciiFont.TALRYTH_15_15);
+        terminal = new AsciiPanel(GameConfig.SCREEN_WIDTH, GameConfig.SCREEN_HEIGHT, AsciiFont.TALRYTH_15_15);
         ScreenManager.getInstance().push(new TitleScreen(terminal));
         add(terminal);
         addKeyListener(this);

@@ -1,4 +1,4 @@
-package rakaneth.golden_lotus.ui;
+package rakaneth.golden_lotus.ui.panels;
 
 import asciiPanel.AsciiPanel;
 import squidpony.StringKit;
@@ -7,14 +7,14 @@ import java.awt.Color;
 import java.util.List;
 
 public class Panel {
-    private final int x;
-    private final int y;
-    private final int width;
-    private final int height;
-    private final int x2;
-    private final int y2;
-    private String caption;
-    private final AsciiPanel terminal;
+    protected final int x;
+    protected final int y;
+    protected final int width;
+    protected final int height;
+    protected final int x2;
+    protected final int y2;
+    protected String caption;
+    protected final AsciiPanel terminal;
 
     public Panel(AsciiPanel terminal, int x, int y, int w, int h, String caption) {
         this.x = x;
@@ -83,4 +83,7 @@ public class Panel {
             write(caption,1, 0, AsciiPanel.white, AsciiPanel.black);
         }
     }
+
+    public int getWidth() { return width; }
+    public int getHeight() { return height; }
 }
