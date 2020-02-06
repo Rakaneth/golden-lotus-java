@@ -40,6 +40,10 @@ public class GameMap {
     private GreasedRegion floors;
     public final int width;
     public final int height;
+    public final int leftEdge;
+    public final int rightEdge;
+    public final int topEdge;
+    public final int botEdge;
     private GreasedRegion scratch;
     private IRNG rng;
 
@@ -54,6 +58,10 @@ public class GameMap {
         this.floors = new GreasedRegion(baseMap, '.');
         this.width = baseMap.length;
         this.height = baseMap[0].length;
+        this.leftEdge = 0;
+        this.rightEdge = width - 1;
+        this.topEdge = 0;
+        this.botEdge = height - 1;
         this.scratch = new GreasedRegion(width, height);
         this.rng = rng;
         this.connections = new HashMap<>();

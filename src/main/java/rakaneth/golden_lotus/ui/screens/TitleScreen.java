@@ -42,16 +42,16 @@ public class TitleScreen extends BaseScreen {
     public void handle(KeyEvent key) {
         switch(key.getKeyCode()) {
             case KeyEvent.VK_DOWN:
-                centerY = GameUtils.clamp(++centerY, 0, map.height - 1);
+                centerY = GameUtils.clamp(++centerY, 0, map.botEdge);
                 break;
             case KeyEvent.VK_UP:
-                centerY = GameUtils.clamp(--centerY, 0, map.height - 1);
+                centerY = GameUtils.clamp(--centerY, 0, map.botEdge);
                 break;
             case KeyEvent.VK_LEFT:
-                centerX = GameUtils.clamp(--centerX, 0, map.width - 1);
+                centerX = GameUtils.clamp(--centerX, 0, map.rightEdge);
                 break;
             case KeyEvent.VK_RIGHT:
-                centerX = GameUtils.clamp(++centerX, 0, map.width - 1);
+                centerX = GameUtils.clamp(++centerX, 0, map.rightEdge);
                 break;
         }
         logger.log(Level.INFO, "Key " +  key.getKeyChar() + " pressed");

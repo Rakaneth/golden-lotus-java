@@ -9,6 +9,7 @@ import rakaneth.golden_lotus.GameConfig;
 import javax.swing.JFrame;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.util.Arrays;
 
 public class App
     extends JFrame
@@ -44,6 +45,7 @@ public class App
 
     public static void main(String[] args) {
         App app = new App();
+        GameConfig.DEBUG = Arrays.asList(args).contains("--debug");
         app.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         app.setVisible(true);
     }
