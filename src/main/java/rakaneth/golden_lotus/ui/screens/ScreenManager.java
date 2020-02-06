@@ -23,13 +23,16 @@ public class ScreenManager {
         screen.enter();
     }
 
-    public BaseScreen pop() { return screenStack.pop(); }
+    public BaseScreen pop() {
+        BaseScreen toExit =  screenStack.pop();
+        toExit.exit();
+        return toExit;
+    }
     public BaseScreen peek() { return screenStack.peek(); }
 
     public void clear() {
         while (!screenStack.isEmpty()) {
-            BaseScreen toExit = screenStack.pop();
-            toExit.exit();
+            pop();
         }
     }
 

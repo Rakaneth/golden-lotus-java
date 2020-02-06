@@ -7,14 +7,14 @@ import java.awt.Color;
 import java.util.List;
 
 public class Panel {
-    private int x;
-    private int y;
-    private int width;
-    private int height;
-    private int x2;
-    private int y2;
+    private final int x;
+    private final int y;
+    private final int width;
+    private final int height;
+    private final int x2;
+    private final int y2;
     private String caption;
-    private AsciiPanel terminal;
+    private final AsciiPanel terminal;
 
     public Panel(AsciiPanel terminal, int x, int y, int w, int h, String caption) {
         this.x = x;
